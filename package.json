@@ -1,0 +1,30 @@
+{
+  "name": "hooli_xyz",
+  "version": "1.0.0",
+  "description": "Software Dev Project ---------------------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klepikhina/Hooli_XYZ.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klepikhina/Hooli_XYZ/issues"
+  },
+  "homepage": "https://github.com/klepikhina/Hooli_XYZ#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-validator": "^5.2.0",
+    "fs": "0.0.1-security",
+    "mysql": "^2.15.0",
+    "nodemon": "^1.17.5",
+    "path": "^0.12.7"
+  }
+}
