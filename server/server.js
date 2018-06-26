@@ -11,10 +11,8 @@ const config                = require("./config")
 //APP
 let app = express()
 let router = express.Router()
-
 //SET
 app.set('views', path.join(__dirname, '/../client/views'))
-console.log(path.join(__dirname, '/../client/views'))
 app.set('view engine', 'html')
 //USE
 app.use(router)
