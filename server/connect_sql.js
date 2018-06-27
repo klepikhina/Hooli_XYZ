@@ -6,6 +6,13 @@ const con = mysql.createConnection({
 });
 
 module.exports = {
+	checkUser: function(username, password) {
+	con.query('
+		SELECT count(1) from User WHERE username=? and userPass=?;
+		'
+/*If user exists, returns 1. If user does not exist, returns 0.*/
+/*Show message that the data was received*/
+	});
 	selectFolders: function (userId) {
 		/*Select folders where userid=?*/
 		con.query('
