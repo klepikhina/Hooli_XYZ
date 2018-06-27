@@ -18,7 +18,7 @@ app.set('view engine', 'html')
 app.use(router)
 //ROUTER
 router.get("/", function(req, res){
-  res.sendFile(path.join(__dirname, '/../client/views/index.html'))
+  res.sendFile(path.join(__dirname, '/../client/views/loginpage.html'))
 })
 //START
 app.listen(config.server.port, function(){

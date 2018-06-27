@@ -1,6 +1,7 @@
 const config = {
   server: {
-    port: "8080"
+    "host": "localhost",
+    "port": "8001"
   }
 }
 module.exports = config
