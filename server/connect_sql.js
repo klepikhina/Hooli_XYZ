@@ -9,9 +9,9 @@ module.exports = {
 	selectFolders: function (userId) {
 		/*Select folders where userid=?*/
 		con.query('
-			SELECT u.userId, uf.folderId FROM User u
-				JOIN UserFolder uf ON u.userId=uf.userId
-				WHERE u.userId=?;', userId, (err,rows) => {
+			SELECT f.folderId, f.folderName FROM Folder f
+				JOIN  UserFolder uf ON f.folderId=uf.folderId
+				WHERE  uf.userId=?;', userId, (err,rows) => {
 			if(err) throw err;
 			console.log('Data received from Db:\n');
 			console.log(rows);
