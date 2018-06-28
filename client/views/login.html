@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Hooli | Login</title>
-		<link href="/../css/login.css" rel="stylesheet" type="text/css">
 	</head>
 	<body background="1.jpeg">
 		<h1>
@@ -13,30 +12,18 @@
 			Enter Login Information:
 		</h2>
 		<div id="loginID" class="loginClass">
-  		<fieldset>
-        <p>
-          <label for = "username">
-          	Login Email:
-          </label>
-          <br>
-          <input id="username" name="j_username" type="text" class="text" value="" size="25">
-          <br>
-          <br>
-        </p>
-        <p>
-        	<label for = "password">
-            	Password:
-          </label>
-          <br>
-          <input type="password" id="password" name="j_password" class="text" size="25" value="">
-        </p>
-        <p>
-          <input name="_eventId_proceed" type="submit" id="submit" class="btn-submit" value="Log In">
-          <input name="_eventId_proceed" type="submit" id="submit" class="btn-submit" value="Create New Account">
-        	<input name="_eventId_proceed" type="submit" id="trial" class="btn-submit" value="trial">
-        </p>
-        <a href = "file:///Users/Pete/Dropbox/CSCI%203308/Project/frontpage.html"> link</a>
-  		</fieldset>
+			<form>
+				<label for="email">
+					Login Email:
+				</label>
+				<input class="text" id="username" name="email" type="email" size="25"><br>
+				<label for="password">
+					Password:
+				</label>
+				<input class="text" id="password" name="password" type="password" size="25"><br>
+				<button class="btn-submit" id="login">Log In</button>
+				<button class="btn-submit" id="signUp">Sign Up</button>
+			</form>
   	</div>
 	</body>
 </html>
