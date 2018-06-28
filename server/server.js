@@ -16,8 +16,12 @@ let app = express()
 let router = express.Router()
 
 router.get('/', function(req, res){
+<<<<<<< HEAD
   res.sendFile(path.join(__dirname, '/../client/views/login.html'))
   res.send("Good Response")
+=======
+  res.sendFile(path.join(__dirname, '/../client/views/loginpage.html'))
+>>>>>>> 3d84dfb4766e270bc72aa5aa1f7b713771774ba9
 })
 
 app.set('views', path.join(__dirname, '/../client/views'))
