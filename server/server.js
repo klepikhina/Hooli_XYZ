@@ -15,10 +15,11 @@ let router = express.Router()
 app.set('views', path.join(__dirname, '/../client/views'))
 app.set('view engine', 'html')
 //USE
+app.use(express.static(path.join(__dirname, '/../client/public')))
 app.use(router)
 //ROUTER
-router.get("/", function(req, res){
-  res.sendFile(path.join(__dirname, '/../client/views/loginpage.html'))
+router.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, '/../client/views/login.html'))
 })
 //START
 app.listen(config.server.port, function(){
