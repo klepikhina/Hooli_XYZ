@@ -13,6 +13,7 @@ module.exports = {
 /*If user exists, returns 1. If user does not exist, returns 0.*/
 /*Show message that the data was received*/
 	});
+	},
 	selectFolders: function (userId) {
 		/*Select folders where userid=?*/
 		con.query('
@@ -32,5 +33,28 @@ module.exports = {
                         console.log('Data received from Db:\n');
                         console.log(rows);
                 });
-	}
+	},
+	insertUser: function(username, password, email) {
+        con.query('
+		INSERT INTO User (username, userPass, email) VALUES(?,?,?);
+                '
+/*Add a user.*/
+/*Show message that the data was received*/
+        });
+	},
+	insertFolder: function(folderName) {
+        con.query('
+                INSERT INTO Folder (?) VALUES(?,?,?);
+                '
+/*Add a folder.*/
+/*Show message that the data was received*/
+        });
+	},
+	insertFile: function(fileName, fileSize, folderId) {
+        con.query('
+                INSERT INTO File (fileName, fileSize, folderId) VALUES(?,?,?);
+                '
+/*Add a user.*/
+/*Show message that the data was received*/
+        });
 };
