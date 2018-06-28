@@ -4,7 +4,7 @@ const con = mysql.createConnection({
   password: 'password', /*add your mysql connection password*/
   database: 'HooliXYZ' /*the database*/
 });
-
+   /*test*/
 module.exports = {
 	checkUser: function(username, password) {
 	con.query('
