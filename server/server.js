@@ -21,7 +21,7 @@ app.use("/css", express.static(path.join(__dirname, '/../client/public/css')))
 app.use(router)
 //ROUTER
 router.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, '/../client/views/login.html'))
+  res.sendFile(path.join(__dirname, '/../client/views/loginpage.html'))
 })
 //START
 app.listen(config.server.port, function(){
