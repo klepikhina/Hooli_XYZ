@@ -1,4 +1,3 @@
-//NODE MODULES
 const express               = require("express")
 const expressValidator      = require("express-validator")
 const mysql                 = require("mysql")
@@ -9,17 +8,15 @@ const ejs                   = require("ejs")
 //CONFIG
 const config                = require("./config")
 //APP
-var app = express()
-var router = express.Router()
+let app = express()
+let router = express.Router()
 //MYSQL API
 
 //SET
-app.set('port', (process.env.PORT || 8001))
-//app.set('views', path.join(__dirname, '/../client/views'))
+app.set('views', path.join(__dirname, '/../client/views'))
 //USE
-app.use("/views",express.static(path.join(__dirname, '/../client/views')))
-app.use("/css", express.static(path.join(__dirname, '/../client/public/css')))
-app.use("/img", express.static(path.join(__dirname, '/../client/public/img')))
+app.use(express.static(path.join(__dirname, '../public')))
+//app.use("/css", express.static(path.join(__dirname, '/../client/public/css')))
 app.use(router)
 //ROUTER
 router.get('/', function(req, res){
