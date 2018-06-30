@@ -7,13 +7,11 @@ const fs                    = require("fs")
 const path                  = require("path")
 const mysql                 = require("mysql")
 const multer                = require("multer") // file storing middleware
-
-
-//CONFIG
-const config                = require("./config")
-
-// const sql_config            = require("./sql-config")
-
+//CONFIG FILES
+const config                = require("./config.js")
+const sql_config            = require("./sql_config.js")
+const sql_insert_user       = require("./sql_insert_user.js")
+const show_files            = require("./routes/show_files.js")
 //APP
 var app = express()
 
@@ -22,7 +20,6 @@ app.use(expressValidator())
 app.use(bodyParser.urlencoded({ extended:true }))
 app.use(bodyParser.json())
 
-
 //STATIC FOLDERS
 app.use("/views",express.static(path.join(__dirname, '/../client/views')))
 app.use("/css", express.static(path.join(__dirname, '/../client/public/css')))
@@ -30,12 +27,10 @@ app.use("/img", express.static(path.join(__dirname, '/../client/public/img')))
 app.use("/scripts", express.static(path.join(__dirname, '/../client/scripts')))
 app.use("/file-storage", express.static(path.join(__dirname, '/../client/public/file-storage')))
 
-
 //ROUTER
 app.get('/', function(req, res){
   console.log('GET', config.server.host+':'+config.server.port, '/')
   res.sendFile(path.join(__dirname, '/../client/views/index.html'))
-  res.send("Good Response")
 })
 app.post('/', function(req, res){
   console.log('POST', config.server.host+':'+config.server.port, '/')
