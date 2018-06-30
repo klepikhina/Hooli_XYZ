@@ -24,7 +24,7 @@ app.use("/scripts", express.static(path.join(__dirname, '/../client/scripts')))
 //ROUTER
 app.get('/', function(req, res){
   console.log('GET', config.server.host, ':', config.server.port, '/')
-  res.sendFile(path.join(__dirname, '/../client/views/login.html'))
+  res.sendFile(path.join(__dirname, '/../client/views/index.html'))
 })
 app.post('/', function(req, res){
   console.log(req)

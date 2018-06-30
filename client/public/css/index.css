@@ -10,14 +10,14 @@ body {
 	background: black;
 }
 
-#header {
+.header {
 	height: 50px;
 	padding-bottom: 10px;
 	font-size: 75%;
 	width: 100%
 }
 
-#title {
+.title {
 	float: left;
 	font-size: 175%;
 	padding: 0px 10px;
@@ -25,18 +25,18 @@ body {
 
 }
 
-#menu {
+.menu {
 	float: right;
 }
 
-#menu ul li {
+.menu ul li {
 	display: inline-block;
 	padding: 0px 10px;
 	font-size: 175%;
 
 }
 
-#menu ul li a {
+.menu ul li a {
 	color: yellow;
 	text-decoration: none;
 }
@@ -51,15 +51,15 @@ h1 {
 h2 {
 	font-size: 16px;
 	text-align: center;
-	padding: 0 0 12px 0; 
+	padding: 0 0 12px 0;
 }
 
-#container {
+.container {
 	max-width: 50%;
     margin: auto;
 	box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
 	position: relative;
-	background: black; 
+	background: black;
 }
 
 table {
@@ -90,7 +90,7 @@ th {
 }
 
 th small {
-	font-size: 9px; 
+	font-size: 9px;
 }
 
 
@@ -107,10 +107,3 @@ td a {
 th a {
 	padding-left: 0
 }
-
-
-
-
-
-
-
