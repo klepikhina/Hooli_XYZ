@@ -12,13 +12,10 @@ The main function of the application is to store code either temporarily or perm
 
 *How to Run*
 ---------------------
-_Clone the repo_
----------------------
+Clone the repo
 Navigate to home directory
-_Starting the Server_
----------------------
+
 npm install
 npm start
-_Start the app_
----------------------
+
 Navigate to localhost:8001
