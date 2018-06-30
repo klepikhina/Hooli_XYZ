@@ -3,7 +3,7 @@ const con = mysql.createConnection({
   user: 'user', /*add your username*/
   password: 'password', /*add your mysql connection password*/
   database: 'HooliXYZ' /*the database*/
-});
+);
    /*test*/
 module.exports = {
   createUser: function(userCredentials){

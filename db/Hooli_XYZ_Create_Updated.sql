@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS HooliXYZ;
 CREATE DATABASE HooliXYZ;
 USE HooliXYZ ;
 
@@ -7,11 +6,11 @@ USE HooliXYZ ;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Folder;
 
--- CREATE TABLE IF NOT EXISTS Folder(
---   folderId INT(11) NOT NULL,
---   folderName VARCHAR(256) NOT NULL,
---   PRIMARY KEY (folderId))
--- ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS Folder(
+  folderId INT(11) NOT NULL,
+  folderName VARCHAR(256) NOT NULL,
+  PRIMARY KEY (folderId))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -23,12 +22,12 @@ CREATE TABLE IF NOT EXISTS File (
   fileId INT(11) NOT NULL,
   fileName VARCHAR(256) NOT NULL,
   fileSize INT(20) NOT NULL,
-  username INT(11) NOT NULL,
-  PRIMARY KEY (fileId)
-  INDEX username (username ASC),
-    CONSTRAINT file_ibfk_1
-    FOREIGN KEY (username)
-    REFERENCES User (usrname))
+  folderId INT(11) NOT NULL,
+  PRIMARY KEY (fileId),
+  INDEX folderId (folderId ASC),
+  CONSTRAINT file_ibfk_1
+    FOREIGN KEY (folderId)
+    REFERENCES Folder (folderId))
 ENGINE = InnoDB;
 
 
@@ -94,20 +93,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS UserFolder ;
 
--- CREATE TABLE IF NOT EXISTS UserFolder (
---   userId INT(11) NOT NULL,
---   folderId INT(11) NOT NULL,
---   PRIMARY KEY (userId, folderId),
---   CONSTRAINT userId_1
---     FOREIGN KEY (userId)
---     REFERENCES User (userId)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT folderId_1
---     FOREIGN KEY (folderId)
---     REFERENCES Folder (folderId)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION)
--- ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS UserFolder (
+  userId INT(11) NOT NULL,
+  folderId INT(11) NOT NULL,
+  PRIMARY KEY (userId, folderId),
+  CONSTRAINT userId_1
+    FOREIGN KEY (userId)
+    REFERENCES User (userId)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT folderId_1
+    FOREIGN KEY (folderId)
+    REFERENCES Folder (folderId)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 SHOW ENGINE INNODB STATUS;
