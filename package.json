@@ -26,6 +26,7 @@
     "express-myconnection": "^1.0.4",
     "express-validator": "^5.2.0",
     "fs": "0.0.1-security",
+    "jade": "*",
     "mocha": "^5.2.0",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5",
