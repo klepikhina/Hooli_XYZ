@@ -35,6 +35,7 @@ app.use("/file-storage", express.static(path.join(__dirname, '/../client/public/
 app.get('/', function(req, res){
   console.log('GET', config.server.host+':'+config.server.port, '/')
   res.sendFile(path.join(__dirname, '/../client/views/index.html'))
+  res.send("Good Response")
 })
 app.post('/', function(req, res){
   console.log('POST', config.server.host+':'+config.server.port, '/')

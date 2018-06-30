@@ -9,7 +9,7 @@ it("Login Content", function(done){
 })
 
 it("Login Status", function(done){
-  request('http://localhost:8001/', function(err, res, body){
+  request('http://localhost:8001/login', function(err, res, body){
     expect(res.statusCode).to.equal(200)
     done()
   })
@@ -17,7 +17,7 @@ it("Login Status", function(done){
 
 it("Main Status", function(done){
   request('http://localhost:8001', function(err, res, body){
-    expect(res.statusCode).to.equal(404)
+    expect(res.statusCode).to.equal(200)
     done()
   })
 })
