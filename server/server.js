@@ -8,7 +8,7 @@ const path                  = require("path")
 const mysql                 = require("mysql")
 //CONFIG
 const config                = require("./config")
-const sql_config            = require("./sql-config")
+// const sql_config            = require("./sql-config")
 //APP
 var app = express()
 //EXPRESS MODULES
@@ -42,14 +42,14 @@ app.put('/login', function(req, res){
   console.log('PUT', config.server.host+':'+config.server.port, '/login')
 })
 //DATABASE API
-app.post('/createUser', function(req, res){
-  sql_config.createUser({
-    username: req.body.userEmail,
-    password: req.body.password
-  }).then(function(){
-    res.sendStatus(200)
-  })
-})
+// app.post('/createUser', function(req, res){
+//   sql_config.createUser({
+//     username: req.body.userEmail,
+//     password: req.body.password
+//   }).then(function(){
+//     res.sendStatus(200)
+//   })
+// })
 //START
 app.listen(config.server.port, function(){
   console.log("Hooli XYZ server running on",
