@@ -13,6 +13,7 @@ The main function of the application is to store code either temporarily or perm
 *How to Run*
 ---------------------
 Clone the repo
+
 Navigate to home directory
 
 npm install
