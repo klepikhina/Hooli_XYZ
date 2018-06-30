@@ -6,6 +6,20 @@ const con = mysql.createConnection({
 });
    /*test*/
 module.exports = {
+  createUser: function(userCredentials){
+    console.log("SQL_CONFIG: CREATE USER")
+  }
+
+
+
+
+
+
+
+
+
+
+
   /*If user exists, returns 1. If user does not exist, returns 0.*/
   /*Show message that the data was received*/
 	checkUser: function(username, password){
