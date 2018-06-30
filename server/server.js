@@ -48,7 +48,13 @@ app.post('/login', function(req, res){
 app.put('/login', function(req, res){
   console.log('PUT', config.server.host+':'+config.server.port, '/login')
 })
-
+//DATABASE API
+app.post('/createUser', function(req, res){
+  sql_config.createUser({
+    username: req.body.userEmail,
+    password: req.body.password
+  })
+})
 
 /*
 
@@ -69,14 +75,14 @@ app.post('/upload',multer(multerConfig).single('photo'),function(req,res){
 */
 
 //DATABASE API
-// app.post('/createUser', function(req, res){
-//   sql_config.createUser({
-//     username: req.body.userEmail,
-//     password: req.body.password
-//   }).then(function(){
-//     res.sendStatus(200)
-//   })
-// })
+app.post('/createUser', function(req, res){
+  sql_config.createUser({
+    username: req.body.userEmail,
+    password: req.body.password
+  }).then(function(){
+    res.sendStatus(200)
+  })
+})
 
 
 //Get files to temp server storage (src: https://medium.com/@Moonstrasse/how-to-make-a-basic-html-form-file-upload-using-multer-in-an-express-node-js-app-16dac2476610)
