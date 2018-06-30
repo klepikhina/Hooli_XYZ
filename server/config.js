@@ -1,12 +1,13 @@
 const config = {
   server: {
     "host": "localhost",
-    "port": "8001"
+    "port": process.env.PORT || 8001
   },
   database: {
     host: 'localhost',
-    user: 'user', /*add your username*/
-    password: 'password', /*add your mysql connection password*/
+    user: 'root', /*add your username*/
+    password: 'admin', /*add your mysql connection password*/
+    port: '3306',
     database: 'HooliXYZ' /*the database*/
   }
 }

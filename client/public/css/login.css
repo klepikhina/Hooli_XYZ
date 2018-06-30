@@ -1,18 +1,15 @@
 h1{
-        color:white;
-        padding:10px;
+  color:white;
+  padding:10px;
 }
 
 #logo{
 	width:5px;
-
 }
-
 
 body{
-	color:white;
+  color:white;
 }
-
 
 h2{
 	color:white;
@@ -20,3 +17,6 @@ h2{
 	padding:4px;
 }
 
+.form-input{
+  width: 200px;
+}
