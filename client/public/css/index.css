@@ -1,109 +1,66 @@
-* {
-	padding:0;
-	margin:0;
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    .row.content {height: 450px}
+    
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+	
+	.center-div {
+		     margin: 0 auto;
+     width: 60%;
+	}
+
+    
+    footer {
+    position: fixed;
+   	left: 0;
+   	bottom: 0;
+   	width: 100%;
+      background-color: #555;
+      color: white;
+      padding: 15px;
+
+    }
+    
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-body {
-	color: #333;
-	font: 14px Sans-Serif;
-	padding: 50px;
-	background: black;
+ul {
+	list-style-type:none;
 }
 
-.header {
-	height: 50px;
-	padding-bottom: 10px;
-	font-size: 75%;
-	width: 100%
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
-.title {
-	float: left;
-	font-size: 175%;
-	padding: 0px 10px;
-	color: yellow;
-
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
-
-.menu {
-	float: right;
-}
-
-.menu ul li {
-	display: inline-block;
-	padding: 0px 10px;
-	font-size: 175%;
-
-}
-
-.menu ul li a {
-	color: yellow;
-	text-decoration: none;
-}
-
-
-h1 {
-	text-align: center;
-	padding: 20px 0 12px 0;
-	margin: 0;
-	color: yellow;
-}
-h2 {
-	font-size: 16px;
-	text-align: center;
-	padding: 0 0 12px 0;
-}
-
-.container {
-	max-width: 50%;
-    margin: auto;
-	box-shadow: 0 5px 10px -5px rgba(0,0,0,0.5);
-	position: relative;
-	background: black;
-}
-
-table {
-	border-collapse: collapse;
-	width: 100%;
-	margin: 15px 0;
-	background: black;
-}
-
-thead {
-	background-color: yellow;
-}
-
-img {
-	float: left;
-}
-
-.topRow {
-	color:black;
-}
-
-th {
-	text-align: left;
-	color: yellow;
-	cursor: pointer;
-	padding: 5px 10px;
-	text-align: center;
-}
-
-th small {
-	font-size: 9px;
-}
-
-
-
-a {
-	text-decoration: none;
-}
-
-td a {
-	color: black;
-	display: block;
-	padding: 5px 10px;
-}
-th a {
-	padding-left: 0
+.button {
+    
+    border: 2px solid-black;
+    color: solid-gray;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: solid-black;
+    width: 100%; 
 }
