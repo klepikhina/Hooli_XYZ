@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   server: {
     "host": "localhost",
     "port": process.env.PORT || 8001
@@ -11,4 +11,3 @@ const config = {
     database: 'HooliXYZ' /*the database*/
   }
 }
-module.exports = config

@@ -5,12 +5,9 @@ $(document).ready(function(){
       password: $("#password").val()
     }
     console.log(credentials)
-    $.post("http://localhost:8001/createUser", credentials, function(data, status){
+    $.post("http://localhost:8001/api/checkUser", credentials, function(data, status){
       console.log(data, status)
     })
     next.preventDefault()
-  })
-  $("#signUp").click(function(){
-    alert("signUp")
   })
 })

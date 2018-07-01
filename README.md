@@ -1,7 +1,7 @@
 # Hooli XYZ
 Software Dev Project
 ---------------------
-*About Hooli XYZ* 
+*About Hooli XYZ*
 ---------------------
 Hooli XYZ intends on creating a version control product specifically for CU students. This web application would require a colorado.edu email address to sign up and would allow students taking CSCI courses to store and collaborate their code with each other.
 
@@ -12,11 +12,22 @@ The main function of the application is to store code either temporarily or perm
 
 *How to Run*
 ---------------------
-Clone the repo
+1. Clone the repo
 
-Navigate to home directory
+git clone https://github.com/klepikhina/Hooli_XYZ.git
 
-npm install
-npm start
+2. Navigate to home directory
+
+3. Go to the config.js file in the server folder. Change your database information to match your system.
+
+4. Build the database and install the node-modules. Make sure you have a recent version of nodejs and npm installed
+
+  npm build
+
+Enter your password when prompted. This will destroy any previous instance of the HooliXYZ database in the system and create a new one.
+
+5. Start the Server
+
+  npm start
 
 Navigate to localhost:8001

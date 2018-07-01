@@ -1,5 +1,4 @@
-DROP DATABASE IF EXISTS HooliXYZ;
-CREATE DATABASE HooliXYZ;
+-- CREATE DATABASE HooliXYZ;
 USE HooliXYZ ;
 
 -- -----------------------------------------------------

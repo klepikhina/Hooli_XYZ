@@ -1,11 +1,5 @@
-const mysql = require("mysql")
-const con = mysql.createConnection({
-  host: 'localhost',
-  user: 'user', /*add your username*/
-  password: 'password', /*add your mysql connection password*/
-  database: 'HooliXYZ' /*the database*/
-})
-/*test*/
+//HOOLI XYZ Database Configuration
+
 module.exports = {
   createUser: function(userCredentials){
     console.log("SQL_CONFIG: CREATE USER")
