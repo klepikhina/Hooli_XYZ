@@ -2,7 +2,7 @@
 
 module.exports = {
   createUser: function(userCredentials){
-    console.log("SQL_CONFIG: CREATE USER")
+    con.query("INSERT INTO User ()")
   },
   /*If user exists, returns 1. If user does not exist, returns 0.*/
   /*Show message that the data was received*/

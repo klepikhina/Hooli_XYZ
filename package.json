@@ -36,6 +36,7 @@
     "nodemon": "^1.17.5",
     "path": "^0.12.7",
     "request": "^2.87.0",
+    "require-sql": "^1.0.0",
     "typescript": "^2.9.2"
   }
 }

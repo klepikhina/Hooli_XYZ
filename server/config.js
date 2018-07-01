@@ -8,6 +8,7 @@ module.exports = {
     user: 'root', /*add your username*/
     password: 'admin', /*add your mysql connection password*/
     port: '3306',
-    database: 'HooliXYZ' /*the database*/
+    database: 'HooliXYZ', /*the database*/
+    multipleStatements: true
   }
 }

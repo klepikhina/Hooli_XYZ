@@ -9,9 +9,11 @@ const fs                    = require('fs')
 const path                  = require('path')
 const mysql                 = require('mysql')
 const multer                = require('multer') // file storing middleware
+const require_sql           = require('require-sql')
 //CONFIG FILES
 const config                = require('./config.js')
 const sql_config            = require('./sql_config.js')
+const HooliXYZ_Create       = require('../db/HooliXYZ_Create.sql')
 
 //APP
 var app = express()
@@ -29,25 +31,26 @@ app.use("/file-storage", express.static(path.join(__dirname, '/../client/public/
 
 //PAGE ROUTER
 app.get('/', function(req, res){
-  console.log('GET', config.server.host+':'+config.server.port, '/')
+  console.log('GET', config.server.host+':'+config.server.port+'/')
   res.sendFile(path.join(__dirname, '/../client/views/index.html'))
 })
-app.post('/', function(req, res){
-  console.log('POST', config.server.host+':'+config.server.port, '/')
-})
-app.put('/', function(req, res){
-  console.log('PUT', config.server.host+':'+config.server.port, '/')
-})
 app.get('/login', function(req, res){
-  console.log('GET', config.server.host+':'+config.server.port, '/login')
+  console.log('GET', config.server.host+':'+config.server.port+'/login')
   res.sendFile(path.join(__dirname, '/../client/views/login.html'))
 })
-app.post('/login', function(req, res){
-  console.log('POST', config.server.host+':'+config.server.port, '/login')
+app.get('/signUp', function(req, res){
+  console.log('GET', config.server.host+':'+config.server.port+'/signUp')
+  res.sendFile(path.join(__dirname, '/../client/views/add_user.html'))
 })
-app.put('/login', function(req, res){
-  console.log('PUT', config.server.host+':'+config.server.port, '/login')
+app.get('/upload', function(req, res){
+  console.log('GET', config.server.host+':'+config.server.port+'/upload')
+  res.sendFile(path.join(__dirname, '/../client/views/add_files.html'))
 })
+app.get('/loginpage', function(req, res){
+  console.log('GET', config.server.host+':'+config.server.port+'/loginpage')
+  res.sendFile(path.join(__dirname, '/../client/views/loginpage.html'))
+})
+
 
 //DATABASE API
 app.post('/api/createUser', function(req, res){
@@ -112,12 +115,16 @@ const multerConfig = {
     }
 };
 
+//MYSQL CONNECTION & CREATION
 const con = mysql.createConnection(config.database)
 con.connect(function(err){
   if(err) throw err
-  console.log("Database Connected")
+  else console.log("Database", config.database.database, "Connected")
 })
-
+con.query(HooliXYZ_Create.toString(), function(err){
+  if(err) throw err
+  else console.log("Tables Created")
+})
 
 //START
 app.listen(config.server.port, function(){
