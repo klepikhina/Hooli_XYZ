@@ -28,6 +28,8 @@ Enter your password when prompted. This will destroy any previous instance of th
 
 5. Start the Server
 
+  npm run build
+  
   npm start
 
 Navigate to localhost:8001
