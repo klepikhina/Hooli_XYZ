@@ -22,13 +22,12 @@ git clone https://github.com/klepikhina/Hooli_XYZ.git
 
 4. Build the database and install the node-modules. Make sure you have a recent version of nodejs and npm installed
 
-  npm build
+  npm run build
 
 Enter your password when prompted. This will destroy any previous instance of the HooliXYZ database in the system and create a new one.
 
 5. Start the Server
 
-  npm run build
   
   npm start
 
