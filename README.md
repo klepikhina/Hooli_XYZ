@@ -10,7 +10,7 @@ The main function of the application is to store code either temporarily or perm
 *Repo Organization*
 ---------------------
 
-*How to Run*
+*How to Run Hooli XYZ*
 ---------------------
 1. Clone the repo
 
@@ -32,3 +32,7 @@ Enter your password when prompted. This will destroy any previous instance of th
   npm start
 
 Navigate to localhost:8001
+
+*How to Run Tests*
+---------------------
+
