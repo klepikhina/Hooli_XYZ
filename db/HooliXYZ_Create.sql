@@ -1,35 +1,30 @@
-DROP database HooliXYZ;
-CREATE DATABASE HooliXYZ;
 USE HooliXYZ ;
-
 -- -----------------------------------------------------
 -- Table `HooliXYZ`.`Folder`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Folder;
-
-
 -- -----------------------------------------------------
 -- Table `HooliXYZ`.`File`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS File ;
 
-CREATE TABLE IF NOT EXISTS File (
-  fileId INT(11) NOT NULL,
-  fileName VARCHAR(256) NOT NULL,
-  fileSize INT(20) NOT NULL,
-  username VARCHAR(45) NOT NULL,
-  PRIMARY KEY (fileId),
-  INDEX username (username ASC),
-  CONSTRAINT file_ibfk_1
-    FOREIGN KEY (username)
-    REFERENCES User (username))
-ENGINE = InnoDB;
+-- CREATE TABLE IF NOT EXISTS File (
+--   fileId INT(11) NOT NULL,
+--   fileName VARCHAR(256) NOT NULL,
+--   fileSize INT(20) NOT NULL,
+--   username VARCHAR(45) NOT NULL,
+--   PRIMARY KEY (fileId),
+--   INDEX username (username ASC),
+--   CONSTRAINT file_ibfk_1
+--     FOREIGN KEY (username)
+--     REFERENCES User (username))
+-- ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `HooliXYZ`.`Whitelist`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Whitelist ;
+-- DROP TABLE IF EXISTS Whitelist ;
 
 CREATE TABLE IF NOT EXISTS Whitelist (
   whiteListId INT(11) NOT NULL,
@@ -42,7 +37,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `HooliXYZ`.`User`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS User ;
+-- DROP TABLE IF EXISTS User ;
 
 CREATE TABLE IF NOT EXISTS User (
   userId INT(11) NOT NULL,
