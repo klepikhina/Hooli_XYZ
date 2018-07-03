@@ -35,7 +35,7 @@ con.query(verifyCreds, function(err, rows, fields) {
                 console.log('Veried (1=yes, 0=no): ', rows[i];
 		yesNo = rows[i];
         }
-        res.send('</br></br><h2>Verified (1=yes, 0=no): </h2><h1>'+ yesNo+ ' </h1>'' );
+        res.send('</br></br><h2>Verified (1=yes, 0=no): </h2><h1>'+ yesNo+ ' </h1>' );
         con.end();
 });     
 
