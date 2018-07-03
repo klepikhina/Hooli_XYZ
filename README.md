@@ -9,6 +9,7 @@ The main function of the application is to store code either temporarily or perm
 
 *Repo Organization*
 ---------------------
+![alt text](file:///Users/Ksenia/Desktop/diagram.png)
 
 *How to Run Hooli XYZ*
 ---------------------
