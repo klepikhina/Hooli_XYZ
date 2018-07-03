@@ -3,6 +3,39 @@ CREATE DATABASE HooliXYZ;
 USE HooliXYZ ;
 
 -- -----------------------------------------------------
+-- Table `HooliXYZ`.`Whitelist`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Whitelist ;
+
+CREATE TABLE IF NOT EXISTS Whitelist (
+  whiteListId INT(11) NOT NULL,
+  ip VARCHAR(45) NOT NULL,
+  username VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (whiteListId))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `HooliXYZ`.`User`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS User ;
+
+CREATE TABLE IF NOT EXISTS User (
+  userId INT(11) NOT NULL,
+  username VARCHAR(45) NOT NULL,
+  userPass VARCHAR(256) NOT NULL,
+  salt VARCHAR(64) NOT NULL,
+  email VARCHAR(256) NOT NULL,
+  whiteListId INT(11) NOT NULL,
+  PRIMARY KEY (username),
+  INDEX whiteListId_idx (whiteListId ASC),
+  CONSTRAINT whiteListId
+    FOREIGN KEY (whiteListId)
+    REFERENCES Whitelist (whiteListId)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `HooliXYZ`.`Folder`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Folder;
@@ -26,39 +59,6 @@ CREATE TABLE IF NOT EXISTS File (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `HooliXYZ`.`Whitelist`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS Whitelist ;
-
-CREATE TABLE IF NOT EXISTS Whitelist (
-  whiteListId INT(11) NOT NULL,
-  ip VARCHAR(45) NOT NULL,
-  username VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (whiteListId))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `HooliXYZ`.`User`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS User ;
-
-CREATE TABLE IF NOT EXISTS User (
-  userId INT(11) NOT NULL,
-  username VARCHAR(45) NOT NULL,
-  userPass VARCHAR(256) NOT NULL,
-  salt VARCHAR(64) NOT NULL,
-  email VARCHAR(256) NOT NULL,
-  whiteListId INT(11) NOT NULL,
-  PRIMARY KEY (username),
-  INDEX whiteListId_idx (whiteListId ASC),
-  CONSTRAINT whiteListId
-    FOREIGN KEY (whiteListId)
-    REFERENCES Whitelist (whiteListId)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
