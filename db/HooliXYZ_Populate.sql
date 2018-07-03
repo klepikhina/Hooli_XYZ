@@ -1,3 +1,16 @@
+INSERT INTO Whitelist
+	(whiteListId, ip, username)
+VALUES
+	(1, '127.0.0.1', 'root'),
+    (2, '172.217.11.174', 'google_user');
+    
+
+INSERT INTO User
+	(userId, username, userPass, salt, email, whiteListId)
+VALUES
+	(1, 'root', 'encrypted_pass_1', 'salt_for_encryption_1', 'root@colorado.edu', 1),
+    (2, 'google_user', 'encrypted_pass_2', 'salt_for_encryption_2', 'gous0000@colorado.edu', 2);
+
 INSERT INTO File
 	(fileId, fileName, fileSize, username)
 VALUES 
@@ -8,17 +21,7 @@ VALUES
     (5, 'File_2_Repo_2', 20, 'google_user'),
     (6, 'File_1_Repo_3', 3, 'google_user');
 
-INSERT INTO Whitelist
-	(whiteListId, ip, username)
-VALUES
-	(1, '127.0.0.1', 'root'),
-    (2, '172.217.11.174', 'google_user');
 
-INSERT INTO User
-	(userId, username, userPass, salt, email, whiteListId)
-VALUES
-	(1, 'root', 'encrypted_pass_1', 'salt_for_encryption_1', 'root@colorado.edu', 1),
-    (2, 'google_user', 'encrypted_pass_2', 'salt_for_encryption_2', 'gous0000@colorado.edu', 2);
 
 INSERT INTO Login
 	(loginId, ip, username, logEntryTime, successOrFail)
@@ -34,3 +37,4 @@ VALUES
     (9, '172.217.11.174', 'google_user', '2018-06-25 06:47:31', 'fail'),
     (10, '172.217.11.174', 'google_user', '2018-06-25 06:47:49', 'success');
 
+select * from File;
