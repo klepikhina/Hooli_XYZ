@@ -6,7 +6,7 @@ module.exports = {
   database: {
     host: 'localhost',
     user: 'root', /*add your username*/
-    password: 'FeedM3Cookies!', /*add your mysql connection password*/
+    password: '', /*add your mysql connection password*/
     port: '3306',
     database: 'HooliXYZ', /*the database*/
     multipleStatements: true
