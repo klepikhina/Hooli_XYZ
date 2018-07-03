@@ -11,7 +11,7 @@ The main function of the application is to store code either temporarily or perm
 ---------------------
 ![Diagram of Repo Organization](https://github.com/klepikhina/Hooli_XYZ/blob/master/diagram.png)
 
-*How to Run Hooli XYZ*
+*How to Build/Run Hooli XYZ*
 ---------------------
 1. Clone the repo
 
@@ -36,4 +36,4 @@ Navigate to localhost:8001
 
 *How to Run Tests*
 ---------------------
-
+The tests from this app are run with Mocha and executed within the test folder. To add a new test, navigate to the test folder and add your test to tests.js. To run the tests, make sure the server is running and in a separate terminal (in the project directory) run: “npm run test”.
