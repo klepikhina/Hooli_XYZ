@@ -1,7 +1,6 @@
-# Hooli XYZ
-Software Dev Project
+# Hooli XYZ - Software Dev Project
 ---------------------
-*About Hooli XYZ*
+*About*
 ---------------------
 Hooli XYZ intends on creating a version control product specifically for CU students. This web application would require a colorado.edu email address to sign up and would allow students taking CSCI courses to store and collaborate their code with each other.
 
