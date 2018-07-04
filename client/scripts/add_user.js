@@ -1,9 +1,10 @@
 $(document).ready(function(){
   $("#signUp").click(function(next){
+    console.log("sign up")
     if($("#password").val() == $("#passConf").val()){
       let credentials = {
-        userName: $("#userName").val()
-        userEmail: $("#userEmail").val()
+        userName: $("#userName").val(),
+        userEmail: $("#userEmail").val(),
         password: $("#password").val()
       }
       console.log(credentials)

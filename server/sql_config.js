@@ -6,33 +6,30 @@ const config = require('./config.js')
 
 module.exports = {
 	//ADD USER
-	createUser: function(user){
-		let addUser = ('INSERT INTO User (username, userpass, email) VALUES',
-		user.userName.toString()+' '+user.password.toString()+' '+user.userEmail.toString()+";")
-		console.log(addUser)
+	createUser: async function(user){
+		console.log('sql_config.js: Creating User', user)
+		let addUser = ('INSERT INTO User (userName, userPass, email) VALUES (\''+user.userName.toString()+'\', \''+user.password.toString()+'\', \''+user.userEmail.toString()+"\');")
+		let con = mysql.createConnection(config.database)
+		con.connect(function(err){if(err) throw err})
+		con.query(addUser, function(err, rows, fields){
+			if (err) throw err
+			for (var i in rows){
+				console.log('Added: ', rows[i].userName)
+				userName = rows[i].userName
+				password = rows[i].password
+				email = rows[i].email
+			}
+		})
+		con.end()
+		return true
 	},
-
-	// var addUser = 'INSERT INTO User (username, userPass, email) VALUES('+userName+','+password+','+email+');';
-  //
-	// con.query(addUser, function(err, rows, fields) {
-	//         if (err) throw err;
-  //
-	//         for (var i in rows) {
-	//                 console.log('Added: ', rows[i].userName);
-	//                 userName = rows[i].userName;
-	//                 password = rows[i].password;
-	// 		email = rows[i].email
-	//         }
-	//         res.send('</br></br><h2>User Added: </h2><h1>' + userName + '- ' + hash + ', ' + email + '</h1>' );
-	//         con.end();
-	// });
 
 	//VERIFY USER
 	checkUser: async function(user){
 		console.log("sql_config.js: Checking User", user)
 		let verifyCreds = "SELECT * from User WHERE email=\'"+user.userEmail.toString()+"\' and userPass=\'"+user.password.toString()+"\';"
 		let yesNo = false
-		const con = mysql.createConnection(config.database)
+		let con = mysql.createConnection(config.database)
 		con.connect(function(err){if(err) throw err})
 		con.query(verifyCreds, function(err, rows){
 			if (err) throw err;
@@ -44,36 +41,36 @@ module.exports = {
 	},
 
 	//SHOW FILES
-	showFiles: function(user){
-		// var showFiles = 'select fileName, fileSize from File where username=' + userName + ';';
-	  //
-		// con.query(showFiles, function(err, rows, fields) {
-		// 	if (err) throw err;
-	  //
-		// 	for (var i in rows) {
-		// 		console.log('File: ', rows[i].fileName, ',', rows[i].fileSize);
-		// 		fileName = rows[i].fileName;
-		// 		fileSize = rows[i].fileSize;
-		// 	}
-		// 	res.send('</br></br><h2>File: </h2><h1>' + userName + '- ' + fileName + ', ' + fileSize + '</h1>' );
-		// 	con.end();
-		// });
+	showFiles: async function(user){
+		console.log("sql_config.js: Showing Files", user)
+		let showFiles = 'select fileName, fileSize from File where username='+user+ ';';
+		let con = mysql.createConnection(config.database)
+		con.connect(function(err){if(err) throw err})
+		con.query(showFiles, function(err, rows, fields){
+			if (err) throw err
+			for (var i in rows){
+				console.log('File: ', rows[i].fileName, ',', rows[i].fileSize);
+				fileName = rows[i].fileName;
+				fileSize = rows[i].fileSize;
+			}
+		})
+		con.end();
 	},
 
 	//ADD FILE
 	addFile: function(user){
-		// var addFile = 'INSERT INTO File ('+fileName+','+fileSize+');';
-	  //
-		// con.query(addFile, function(err, rows, fields) {
-		//         if (err) throw err;
-	  //
-		//         for (var i in rows) {
-		//                 console.log('Added: ', rows[i].fileName);
-		//                 fileName = rows[i].fileName;
-		//                 fileSize = rows[i].fileSize
-		//         }
-		//         res.send('</br></br><h2>File Added: </h2><h1>' + fileName + '- ' + fileSize + '</h1>' );
-		//         con.end();
-		// });
+		console.log("sql_config.js: Showing Files", user)
+		let addFile = 'INSERT INTO File ('+fileName+','+fileSize+');';
+		let con = mysql.createConnection(config.database)
+		con.connect(function(err){if(err) throw err})
+		con.query(addFile, function(err, rows, fields) {
+			if (err) throw err;
+		  for (var i in rows) {
+		  	console.log('Added: ', rows[i].fileName);
+		    fileName = rows[i].fileName;
+		    fileSize = rows[i].fileSize
+		  }
+		});
+		con.end();
 	}
 }

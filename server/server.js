@@ -56,9 +56,11 @@ app.get('/loginpage', function(req, res){
 app.post('/api/createUser', function(req, res){
   console.log("Server.js: Creating User")
   sql_config.createUser({
-    userName: req.body.userFirstName,
+    userName: req.body.userName,
     userEmail: req.body.userEmail,
     password: req.body.password,
+  }).then(function(res){
+    if (res) console.log(res)
   })
 })
 app.post('/api/checkUser', function(req, res){
@@ -66,8 +68,8 @@ app.post('/api/checkUser', function(req, res){
   let login = sql_config.checkUser({
     userEmail: req.body.userEmail,
     password: req.body.password
-  }).then(function(login){
-    console.log(login)
+  }).then(function(res){
+    console.log(res)
   })
 })
 app.post('/api/getFiles', function(req, res){
