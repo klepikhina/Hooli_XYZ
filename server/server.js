@@ -54,19 +54,24 @@ app.get('/loginpage', function(req, res){
 
 //DATABASE API
 app.post('/api/createUser', function(req, res){
+  console.log("Server.js: Creating User")
   sql_config.createUser({
-    userFirstName: req.body.userFirstName,
-    userLastName: req.body.userLastName,
+    userName: req.body.userFirstName,
     userEmail: req.body.userEmail,
     password: req.body.password,
   })
 })
 app.post('/api/checkUser', function(req, res){
-  console.log("checking User")
-  sql_config.checkUser({
+  console.log("Server.js: Checking User")
+  let login = sql_config.checkUser({
     userEmail: req.body.userEmail,
     password: req.body.password
+  }).then(function(login){
+    console.log(login)
   })
+})
+app.post('/api/getFiles', function(req, res){
+
 })
 app.post('/api/uploadFile', function(req, res){
 
@@ -124,6 +129,10 @@ con.connect(function(err){
 con.query(HooliXYZ_Create.toString(), function(err){
   if(err) throw err
   else console.log("Tables Created")
+})
+con.end(function(err){
+  if(err) throw err
+  else console.log("Database", config.database.database, "Disconnected")
 })
 
 //START
