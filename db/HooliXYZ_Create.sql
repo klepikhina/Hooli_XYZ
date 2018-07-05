@@ -20,13 +20,13 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS User ;
 
 CREATE TABLE IF NOT EXISTS User (
-  userId INT(11) NOT NULL,
+  userId INT(11),
   userName VARCHAR(45) NOT NULL,
   userPass VARCHAR(256) NOT NULL,
-  salt VARCHAR(64) NOT NULL,
+  salt VARCHAR(64),
   email VARCHAR(256) NOT NULL,
-  whiteListId INT(11) NOT NULL,
-  PRIMARY KEY (username),
+  whiteListId INT(11),
+  PRIMARY KEY (userName),
   INDEX whiteListId_idx (whiteListId ASC),
   CONSTRAINT whiteListId
     FOREIGN KEY (whiteListId)
@@ -39,8 +39,6 @@ ENGINE = InnoDB;
 -- Table `HooliXYZ`.`Folder`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Folder;
-
-
 -- -----------------------------------------------------
 -- Table `HooliXYZ`.`File`
 -- -----------------------------------------------------
@@ -57,9 +55,6 @@ CREATE TABLE IF NOT EXISTS File (
     FOREIGN KEY (username)
     REFERENCES User (username))
 ENGINE = InnoDB;
-
-
-
 
 -- -----------------------------------------------------
 -- Table `HooliXYZ`.`Login`

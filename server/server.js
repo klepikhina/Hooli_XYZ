@@ -4,8 +4,10 @@
 const bodyParser            = require('body-parser')
 const express               = require('express')
 const expressValidator      = require('express-validator')
+const expressSession        = require('express-session')
 const myConnection          = require('express-myconnection')
 const fs                    = require('fs')
+const passport              = require('passport')
 const path                  = require('path')
 const mysql                 = require('mysql')
 const multer                = require('multer') // file storing middleware
@@ -17,7 +19,6 @@ const HooliXYZ_Create       = require('../db/HooliXYZ_Create.sql')
 
 //APP
 var app = express()
-//EXPRESS MODULES
 app.use(expressValidator())
 app.use(bodyParser.urlencoded({ extended:true }))// for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json())// for parsing application/json
@@ -46,11 +47,6 @@ app.get('/upload', function(req, res){
   console.log('GET', config.server.host+':'+config.server.port+'/upload')
   res.sendFile(path.join(__dirname, '/../client/views/add_files.html'))
 })
-app.get('/loginpage', function(req, res){
-  console.log('GET', config.server.host+':'+config.server.port+'/loginpage')
-  res.sendFile(path.join(__dirname, '/../client/views/loginpage.html'))
-})
-
 
 //DATABASE API
 app.post('/api/createUser', function(req, res){
@@ -59,8 +55,8 @@ app.post('/api/createUser', function(req, res){
     userName: req.body.userName,
     userEmail: req.body.userEmail,
     password: req.body.password,
-  }).then(function(res){
-    if (res) console.log(res)
+  }).then(function(){
+    res.send(true)
   })
 })
 app.post('/api/checkUser', function(req, res){
@@ -68,8 +64,9 @@ app.post('/api/checkUser', function(req, res){
   let login = sql_config.checkUser({
     userEmail: req.body.userEmail,
     password: req.body.password
-  }).then(function(res){
-    console.log(res)
+  }).then(function(yesNo){
+    console.log("Server", yesNo)
+    res.send(yesNo)
   })
 })
 app.post('/api/getFiles', function(req, res){
@@ -92,7 +89,6 @@ app.post('/upload',multer(multerConfig).single('photo'),function(req,res){
    res.send('Complete!');
 });
 */
-
 
 //Get files to temp server storage (src: https://medium.com/@Moonstrasse/how-to-make-a-basic-html-form-file-upload-using-multer-in-an-express-node-js-app-16dac2476610)
 const multerConfig = {

@@ -8,11 +8,15 @@ $(document).ready(function(){
         password: $("#password").val()
       }
       console.log(credentials)
-      $.post("http://localhost:8001/api/createUser", credentials, function(data, status){
-        console.log(data,status)
-      })
+      if(credentials.userName && credentials.userEmail && credentials.password){
+        $.post("http://localhost:8001/api/createUser", credentials, function(data, status){
+          console.log(data,status)
+          window.location.replace("http://localhost:8001/login")
+        })
+      }
+      else(alert("Error: Missing Fields"))
     }
-    else alert("Passwords Do Not Match")
+    else alert("Error: passwords do not match")
     next.preventDefault()
   })
 })

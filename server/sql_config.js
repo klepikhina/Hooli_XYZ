@@ -2,13 +2,13 @@
 const crypto = require('crypto')
 const mysql = require('mysql')
 const config = require('./config.js')
-// var hash = crypto.createHash('sha256').update(password).digest('base64');
 
 module.exports = {
 	//ADD USER
 	createUser: async function(user){
 		console.log('sql_config.js: Creating User', user)
-		let addUser = ('INSERT INTO User (userName, userPass, email) VALUES (\''+user.userName.toString()+'\', \''+user.password.toString()+'\', \''+user.userEmail.toString()+"\');")
+		let addUser = ("INSERT INTO User (userName, userPass, email) VALUES (\'"+user.userName.toString()+'\', \''+user.password.toString()+'\', \''+user.userEmail.toString()+"\');")
+		console.log(addUser)
 		let con = mysql.createConnection(config.database)
 		con.connect(function(err){if(err) throw err})
 		con.query(addUser, function(err, rows, fields){
@@ -19,9 +19,10 @@ module.exports = {
 				password = rows[i].password
 				email = rows[i].email
 			}
+			console.log("Query Added")
+			con.end()
 		})
-		con.end()
-		return true
+		return (true)
 	},
 
 	//VERIFY USER
@@ -33,11 +34,13 @@ module.exports = {
 		con.connect(function(err){if(err) throw err})
 		con.query(verifyCreds, function(err, rows){
 			if (err) throw err;
-			if (rows.length >= 0) yesNo = true
+			console.log(rows, rows.length)
+			if (rows.length = 1) yesNo = true
 			else yesNo = false
+			con.end()
+			console.log(yesNo)
+			return yesNo
 		})
-		con.end()
-		return yesNo
 	},
 
 	//SHOW FILES
@@ -53,12 +56,13 @@ module.exports = {
 				fileName = rows[i].fileName;
 				fileSize = rows[i].fileSize;
 			}
+			con.end()
 		})
-		con.end();
+
 	},
 
 	//ADD FILE
-	addFile: function(user){
+	addFile: async function(user){
 		console.log("sql_config.js: Showing Files", user)
 		let addFile = 'INSERT INTO File ('+fileName+','+fileSize+');';
 		let con = mysql.createConnection(config.database)
@@ -70,7 +74,8 @@ module.exports = {
 		    fileName = rows[i].fileName;
 		    fileSize = rows[i].fileSize
 		  }
+			con.end()
 		});
-		con.end();
+
 	}
 }
