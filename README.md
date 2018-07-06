@@ -12,6 +12,8 @@ The main function of the application is to store code either temporarily or perm
 
 *How to Build/Run Hooli XYZ*
 ---------------------
+Be sure to have node, npm, and mysql up and running on your local system.
+
 1. Clone the repo
 
 git clone https://github.com/klepikhina/Hooli_XYZ.git
